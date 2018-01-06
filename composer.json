@@ -25,8 +25,8 @@
   },
   "require": {
     "php": "^5.6 || ^7.0",
-    "msbios/msbios": "^1.0",
     "msbios/filter": "^1.0",
+    "msbios/db": "^1.0",
     "ccampbell/chromephp": "^4.1",
     "zfr/zfr-cors": "^1.3"
   },
