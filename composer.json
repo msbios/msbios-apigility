@@ -1,6 +1,6 @@
 {
-  "name": "msbios/APIGILITY",
-  "description": "MSBios I18n",
+  "name": "msbios/apigility",
+  "description": "MSBios Apigility",
   "license": "GPL",
   "keywords": [
     "php"
@@ -59,7 +59,14 @@
     "upload-coverage": "coveralls -v",
     "commit": "git add . && git commit -a -m \"Lazy Composer Commiter\" && git push",
     "msgfmt": "find . -name \\*.po -execdir sh -c 'msgfmt \"$0\" -o `basename $0 .po`.mo' '{}' \\;",
-    "serve": "php -S 0.0.0.0:3107 -t public index.php"
+    "serve": "php -S 0.0.0.0:3107 -t public index.php",
+    "development-disable": "zf-development-mode disable",
+    "development-enable": "zf-development-mode enable",
+    "development-status": "zf-development-mode status",
+    "assets": [
+      "cd public && ln -s ../vendor/zfcampus/zf-apigility-admin-ui/dist/apigility-ui",
+      "cd public && ln -s ../vendor/zfcampus/zf-apigility/asset/zf-apigility"
+    ]
   },
   "extra": {
     "zf": {
