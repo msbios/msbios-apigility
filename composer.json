@@ -16,10 +16,7 @@
   "autoload": {
     "psr-4": {
       "MSBios\\Apigility\\": "src/"
-    },
-    "files": [
-      "constants.php"
-    ]
+    }
   },
   "autoload-dev": {
     "psr-4": {
