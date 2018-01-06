@@ -25,7 +25,7 @@ class Module implements
 {
 
     /** @const VERSIOn */
-    const VERSION = '1.0.1';
+    const VERSION = '1.0.2';
 
     /**
      * @return mixed
