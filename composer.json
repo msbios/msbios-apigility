@@ -30,23 +30,23 @@
     "php": "^5.6 || ^7.0",
     "msbios/msbios": "^1.0",
     "msbios/filter": "^1.0",
-    "ccampbell/chromephp": "^4.1"
+    "ccampbell/chromephp": "^4.1",
+    "zfr/zfr-cors": "^1.3"
   },
   "require-dev": {
-    "zfcampus/zf-apigility": "^1.3",
-    "zfcampus/zf-apigility-documentation": "^1.2.3",
-    "zfcampus/zf-development-mode": "^3.0",
-    "zfr/zfr-cors": "^1.3",
     "zendframework/zend-cache": "^2.7.1",
     "zendframework/zend-mvc-i18n": "^1.0",
     "zendframework/zend-log": "^2.9",
+    "zfcampus/zf-apigility": "^1.3",
+    "zfcampus/zf-apigility-documentation": "^1.2.3",
+    "zfcampus/zf-development-mode": "^3.0",
     "zfcampus/zf-apigility-documentation-swagger": "^1.2",
-    "msbios/test": "^1.0",
-    "msbios/debug": "^1.0",
     "zfcampus/zf-apigility-admin": "^1.5.9",
     "zfcampus/zf-asset-manager": "^1.0",
     "zfcampus/zf-composer-autoloading": "^1.0",
-    "zfcampus/zf-deploy": "^1.2"
+    "zfcampus/zf-deploy": "^1.2",
+    "msbios/test": "^1.0",
+    "msbios/debug": "^1.0"
   },
   "scripts": {
     "cs-check": "phpcs",
