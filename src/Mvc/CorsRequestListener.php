@@ -21,7 +21,7 @@ class CorsRequestListener extends DefaultCorsRequestListener
     {
         try {
             parent::onCorsRequest($event);
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             // I have an exception.... but I ignore it!
         }
     }

@@ -6,11 +6,10 @@
 
 namespace MSBios\Apigility;
 
-use Zend\EventManager\Event;
+use MSBios\ModuleInterface;
 use Zend\EventManager\EventInterface;
+use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\ModuleManager\Feature\BootstrapListenerInterface;
-use Zend\Mvc\ApplicationInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Uri\Http;
 use Zend\Uri\Uri;
 use Zend\Uri\UriFactory;
@@ -19,8 +18,15 @@ use Zend\Uri\UriFactory;
  * Class Module
  * @package MSBios\Apigility
  */
-class Module implements BootstrapListenerInterface
+class Module implements
+    ModuleInterface,
+    BootstrapListenerInterface,
+    AutoloaderProviderInterface
 {
+
+    /** @const VERSIOn */
+    const VERSION = '1.0.0';
+
     /**
      * @return mixed
      */
@@ -41,6 +47,9 @@ class Module implements BootstrapListenerInterface
         UriFactory::registerScheme('chrome-extension', Uri::class);
     }
 
+    /**
+     * @return array
+     */
     public function getAutoloaderConfig()
     {
         return [

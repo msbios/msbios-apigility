@@ -5,6 +5,7 @@
  */
 
 namespace MSBios\Apigility;
+
 use Zend\Db\ResultSet\ResultSetInterface;
 use Zend\Db\Sql\Select;
 
@@ -90,7 +91,6 @@ class VersionableResource extends Resource
 
         switch ($data[$this->statusName]) {
             case 'MODIFIED':
-
                 /** @var \ArrayObject $row */
                 $row = $this->fetchRowVersion($id);
 
@@ -123,7 +123,6 @@ class VersionableResource extends Resource
                 break;
 
             case 'CONFIRM':
-
                 /** @var \ArrayObject $row */
                 $row = $this->fetchRowVersion($id);
                 switch ($row[$this->statusName]) {
@@ -146,7 +145,6 @@ class VersionableResource extends Resource
                 break;
 
             case 'REJECT':
-
                 /** @var \ArrayObject $penultimate */
                 $penultimate = $this->fetchRowVersion($id, 1);
                 switch ($penultimate[$this->statusName]) {
@@ -197,5 +195,4 @@ class VersionableResource extends Resource
 
         return $resultSet->current();
     }
-
 }

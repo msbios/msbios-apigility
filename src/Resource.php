@@ -122,7 +122,7 @@ class Resource extends DefaultDbConnectedResource
                 $operator = isset($filter[self::PROPERTY_OPERATOR_KEY])
                     ? $filter[self::PROPERTY_OPERATOR_KEY] : 'like';
 
-                if (!isset($filter[self::PROPERTY_VALUE_KEY])) {
+                if (! isset($filter[self::PROPERTY_VALUE_KEY])) {
                     continue;
                 }
 
@@ -151,7 +151,6 @@ class Resource extends DefaultDbConnectedResource
 
                     case 'like':
                     default:
-
                         /** @var string $like */
                         $like = "{$value}%";
                         if (is_array($filter[self::PROPERTY_NAME_KEY])) {
@@ -163,7 +162,6 @@ class Resource extends DefaultDbConnectedResource
                                 $tmp->like($identifier, $like);
                                 $predicate->addPredicate($tmp, Predicate::COMBINED_BY_OR);
                             }
-
                         } else {
                             $predicate->like($filter[self::PROPERTY_NAME_KEY], $like);
                         }
@@ -177,7 +175,6 @@ class Resource extends DefaultDbConnectedResource
 
         /** @var string $query */
         if ($query = $params[WhitelistInputFilter::INPUT_QUERY]) {
-
             // /** @var MetadataInterface $metadata */
             // $metadata = Factory::createSourceFromAdapter($this->table->getAdapter());
             //

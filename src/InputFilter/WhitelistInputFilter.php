@@ -75,7 +75,6 @@ class WhitelistInputFilter extends InputFilter
             //}
             //
             //return $result;
-
         };
 
         $objFilter->getFilterChain()

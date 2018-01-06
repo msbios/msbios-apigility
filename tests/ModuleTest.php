@@ -3,9 +3,9 @@
  * @access protected
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
-namespace MSBiosTest\I18n;
+namespace MSBiosTest\Apigility;
 
-use MSBios\I18n\Module;
+use MSBios\Apigility\Module;
 use MSBios\ModuleInterface;
 use PHPUnit\Framework\TestCase;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;

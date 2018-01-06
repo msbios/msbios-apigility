@@ -35,11 +35,6 @@ return [
     ],
 
     'zf-oauth2' => [
-        // 'db' => [
-        //    'dsn' => 'mysql:dbname=warehouse.dev;host=localhost', // for example "mysql:dbname=oauth2_db;host=localhost"
-        //    'username' => 'root',
-        //    'password' => 'root',
-        // ],
         'storage_settings' => [
             'user_table' => 'tbl_users',
             'client_table' => 'oa2_clients',
