@@ -41,10 +41,11 @@ use Zend\Db\Sql\Select;
     (ISNULL(`o3`.`ID`)
     AND (`o1`.`Status` IN ('ADDED' , 'READY', 'DELETED')))
     ORDER BY `o1`.`ID` DESC
+ *
  * Class VersionableResource
  * @package MSBios\Apigility
  */
-class VersionableResource extends Resource
+class VersionableConnectedResource extends ConnectedResource
 {
     /** @var string */
     protected $statusName = 'Status';

@@ -6,6 +6,8 @@
 
 namespace MSBios\Apigility;
 
+use Zend\ServiceManager\Factory\InvokableFactory;
+
 return [
 
     'service_manager' => [
@@ -32,6 +34,15 @@ return [
             Controller\AuthController::class =>
                 Factory\AuthControllerFactory::class,
         ],
+    ],
+
+    'filters' => [
+        'factories' => [
+            Filter\CriteriaFilter::class =>
+                InvokableFactory::class,
+            Filter\DirectionFilter::class =>
+                InvokableFactory::class
+        ]
     ],
 
     'zf-oauth2' => [

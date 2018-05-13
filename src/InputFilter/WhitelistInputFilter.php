@@ -6,11 +6,12 @@
 
 namespace MSBios\Apigility\InputFilter;
 
-use Zend\InputFilter\Input;
+use MSBios\Apigility\Filter\CriteriaFilter;
+use MSBios\Apigility\Filter\DirectionFilter;
+use MSBios\Filter\Json\Decoder;
+use Zend\Filter\StringTrim;
+use Zend\Filter\StripTags;
 use Zend\InputFilter\InputFilter;
-use Zend\Json\Decoder;
-use Zend\Json\Exception\RuntimeException;
-use Zend\Json\Json;
 
 /**
  * Class WhitelistInputFilter
@@ -38,57 +39,67 @@ class WhitelistInputFilter extends InputFilter
 
     /**
      * WhitelistInputFilter constructor.
+     * @param array $data
      */
-    public function __construct()
+    public function __construct($data = [])
     {
         $this->init();
+        $this->setData($data);
     }
 
+    /**
+     * @inheritdoc
+     */
     public function init()
     {
         parent::init();
 
-        $this->add(new Input(self::INPUT_IDENTIFIER));
-        $this->add(new Input(self::INPUT_QUERY));
+        /** @var array $trim */
+        $trim = [
+            'name' => StringTrim::class,
+        ];
 
-        /** @var Input $objFilter */
-        $objFilter = new Input(self::INPUT_FILTER);
+        /** @var array $decoder */
+        $decoder = [
+            'name' => Decoder::class,
+        ];
 
-        /** @var callable $fnDecoder */
-        $fnDecoder = function ($string) {
-
-            try {
-                return Json::decode($string, Json::TYPE_ARRAY);
-            } catch (RuntimeException $exc) {
-                return [];
-            };
-
-            ///** @var array $result */
-            //$result = Decoder::decode($string, Json::TYPE_ARRAY);
-            //
-            ///** @var array $result */
-            //$result = json_decode($string, true);
-            //
-            //if ((json_last_error() != JSON_ERROR_NONE)) {
-            //    /** @var array $result */
-            //    return [];
-            //}
-            //
-            //return $result;
-        };
-
-        $objFilter->getFilterChain()
-            ->attach($fnDecoder);
-        $this->add($objFilter);
-
-        /** @var Input $objSort */
-        $objSort = new Input(self::INPUT_SORT);
-        $objSort->getFilterChain()
-            ->attach($fnDecoder);
-        $this->add($objSort);
-
-
-        $this->add(new Input(self::INPUT_LIMIT));
-        $this->add(new Input(self::INPUT_OFFSET));
+        $this->add([
+            'name' => self::INPUT_IDENTIFIER,
+            'filters' => [
+                $trim
+            ]
+        ])->add([
+            'name' => self::INPUT_QUERY,
+            'filters' => [
+                $trim, [
+                    'name' => StripTags::class,
+                ],
+            ]
+        ])->add([
+            'name' => self::INPUT_FILTER,
+            'filters' => [
+                $decoder, [
+                    'name' => CriteriaFilter::class,
+                ]
+            ]
+        ])->add([
+            'name' => self::INPUT_SORT,
+            'filters' => [
+                $decoder, [
+                    'name' => DirectionFilter::class,
+                ]
+            ]
+        ])->add([
+            'name' => self::INPUT_LIMIT,
+            'filters' => [
+                $trim
+            ]
+        ])->add([
+            'name' => self::INPUT_OFFSET,
+            'filters' => [
+                $trim
+            ]
+        ]);
     }
 }

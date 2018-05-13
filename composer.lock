@@ -4,51 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a163536de8adbe91f31ee6432cc9d26",
+    "content-hash": "64f8dda828e63b0e0a413774ca387c92",
     "packages": [
-        {
-            "name": "ccampbell/chromephp",
-            "version": "4.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ccampbell/chromephp.git",
-                "reference": "c3c297615d48ae5b2a86a82311152d1ed095fcef"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ccampbell/chromephp/zipball/c3c297615d48ae5b2a86a82311152d1ed095fcef",
-                "reference": "c3c297615d48ae5b2a86a82311152d1ed095fcef",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.0.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ChromePhp": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Craig Campbell",
-                    "email": "iamcraigcampbell@gmail.com",
-                    "homepage": "http://craig.is",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Log variables to the Chrome console (via Chrome Logger Google Chrome extension).",
-            "homepage": "http://github.com/ccampbell/chromephp",
-            "keywords": [
-                "log",
-                "logging"
-            ],
-            "time": "2013-06-26T03:44:33+00:00"
-        },
         {
             "name": "container-interop/container-interop",
             "version": "1.2.0",
@@ -192,16 +149,16 @@
         },
         {
             "name": "msbios/filter",
-            "version": "v1.0.14",
+            "version": "v1.0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/msbios/msbios-filter.git",
-                "reference": "fa24628e10c23f6da511815acb809b4fecd7c567"
+                "reference": "c2b1c31ed661baf0792db8a30e1d68f12d21dc05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/msbios/msbios-filter/zipball/fa24628e10c23f6da511815acb809b4fecd7c567",
-                "reference": "fa24628e10c23f6da511815acb809b4fecd7c567",
+                "url": "https://api.github.com/repos/msbios/msbios-filter/zipball/c2b1c31ed661baf0792db8a30e1d68f12d21dc05",
+                "reference": "c2b1c31ed661baf0792db8a30e1d68f12d21dc05",
                 "shasum": ""
             },
             "require": {
@@ -239,7 +196,7 @@
             "keywords": [
                 "php"
             ],
-            "time": "2018-04-13T15:30:33+00:00"
+            "time": "2018-05-13T11:55:58+00:00"
         },
         {
             "name": "msbios/imagine",
@@ -1506,6 +1463,49 @@
             "time": "2017-11-15T01:41:02+00:00"
         },
         {
+            "name": "ccampbell/chromephp",
+            "version": "4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ccampbell/chromephp.git",
+                "reference": "c3c297615d48ae5b2a86a82311152d1ed095fcef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ccampbell/chromephp/zipball/c3c297615d48ae5b2a86a82311152d1ed095fcef",
+                "reference": "c3c297615d48ae5b2a86a82311152d1ed095fcef",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ChromePhp": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Craig Campbell",
+                    "email": "iamcraigcampbell@gmail.com",
+                    "homepage": "http://craig.is",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Log variables to the Chrome console (via Chrome Logger Google Chrome extension).",
+            "homepage": "http://github.com/ccampbell/chromephp",
+            "keywords": [
+                "log",
+                "logging"
+            ],
+            "time": "2013-06-26T03:44:33+00:00"
+        },
+        {
             "name": "digitalnature/php-ref",
             "version": "v1.2",
             "source": {
@@ -2083,19 +2083,20 @@
         },
         {
             "name": "msbios/debug",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/msbios/msbios-debug.git",
-                "reference": "19193c62d59b12bbb0237a07e77fe88e47f7c06e"
+                "reference": "c7725b24465300cbe61959e02dfe9c63c7815c76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/msbios/msbios-debug/zipball/19193c62d59b12bbb0237a07e77fe88e47f7c06e",
-                "reference": "19193c62d59b12bbb0237a07e77fe88e47f7c06e",
+                "url": "https://api.github.com/repos/msbios/msbios-debug/zipball/c7725b24465300cbe61959e02dfe9c63c7815c76",
+                "reference": "c7725b24465300cbe61959e02dfe9c63c7815c76",
                 "shasum": ""
             },
             "require": {
+                "ccampbell/chromephp": "^4.1",
                 "digitalnature/php-ref": "^1.2",
                 "jhuet/zdt-logger-module": "^1.0",
                 "matycz/lemo-tracy": "^1.0",
@@ -2129,7 +2130,7 @@
             "keywords": [
                 "php"
             ],
-            "time": "2018-02-07T10:54:39+00:00"
+            "time": "2018-05-13T12:42:13+00:00"
         },
         {
             "name": "msbios/test",
