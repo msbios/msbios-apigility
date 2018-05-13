@@ -16,30 +16,32 @@ use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
  */
 class ModuleTest extends TestCase
 {
-    /** @var Module */
-    protected $instance;
-
-    protected function setUp()
+    /**
+     * @return Module|ModuleInterface
+     */
+    public function testInstance()
     {
-        $this->instance = new Module;
-        parent::setUp();
+        /** @var ModuleInterface $instance */
+        $instance = new Module;
+        $this->assertInstanceOf(ModuleInterface::class, $instance);
+        return $instance;
     }
 
     /**
-     *
+     * @depends testInstance
+     * @param ModuleInterface $instance
      */
-    public function testGetModuleConfigFile()
+    public function testGetConfig(ModuleInterface $instance)
     {
-        $this->assertTrue($this->instance instanceof ModuleInterface);
-        $this->assertInternalType('array', $this->instance->getConfig());
+        $this->assertInternalType('array', $instance->getConfig());
     }
 
     /**
-     *
+     * @depends testInstance
+     * @param ModuleInterface $instance
      */
-    public function testGetAutoloaderConfig()
+    public function testGetAutoloaderConfig(ModuleInterface $instance)
     {
-        $this->assertTrue($this->instance instanceof AutoloaderProviderInterface);
-        $this->assertInternalType('array', $this->instance->getAutoloaderConfig());
+        $this->assertInternalType('array', $instance->getAutoloaderConfig());
     }
 }
