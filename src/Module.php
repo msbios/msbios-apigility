@@ -8,6 +8,8 @@ namespace MSBios\Apigility;
 
 use MSBios\ModuleInterface;
 use Zend\EventManager\EventInterface;
+use Zend\Loader\AutoloaderFactory;
+use Zend\Loader\StandardAutoloader;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\ModuleManager\Feature\BootstrapListenerInterface;
 use Zend\Uri\Http;
@@ -25,7 +27,7 @@ class Module implements
 {
 
     /** @const VERSIOn */
-    const VERSION = '1.0.8';
+    const VERSION = '1.0.9';
 
     /**
      * @return mixed
@@ -53,6 +55,11 @@ class Module implements
     public function getAutoloaderConfig()
     {
         return [
+            AutoloaderFactory::STANDARD_AUTOLOADER => [
+                StandardAutoloader::LOAD_NS => [
+                    __NAMESPACE__ => __DIR__,
+                ],
+            ],
             'ZF\Apigility\Autoloader' => [
                 'namespaces' => [
                     __NAMESPACE__ => __DIR__ . '/src',
