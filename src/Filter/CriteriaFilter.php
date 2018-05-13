@@ -20,12 +20,16 @@ use Zend\Filter\FilterInterface;
 class CriteriaFilter implements FilterInterface
 {
     /**
-     * @inheritdoc
      * @param mixed $value
      * @return array|mixed|PredicateInterface|PredicateSet
      */
     public function filter($value)
     {
+
+        if (empty($value)) {
+            return $value;
+        }
+
         /** @var PredicateInterface $predicateSet */
         $predicateSet = new PredicateSet;
 
