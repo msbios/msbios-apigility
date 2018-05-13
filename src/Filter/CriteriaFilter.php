@@ -12,6 +12,7 @@ use Zend\Db\Sql\Predicate\Predicate;
 use Zend\Db\Sql\Predicate\PredicateInterface;
 use Zend\Db\Sql\Predicate\PredicateSet;
 use Zend\Filter\FilterInterface;
+use Zend\Stdlib\ArrayUtils;
 
 /**
  * Class CriteriaFilter
@@ -28,6 +29,10 @@ class CriteriaFilter implements FilterInterface
 
         if (empty($value)) {
             return $value;
+        }
+
+        if ($value instanceof \Traversable) {
+            $value = ArrayUtils::iteratorToArray($value);
         }
 
         /** @var PredicateInterface $predicateSet */
