@@ -20,13 +20,15 @@ class DirectionFilter implements FilterInterface
      */
     public function filter($value)
     {
-        /**
-         * @var string $i
-         * @var string $v
-         */
-        foreach ($value as $i => $v) {
-            $value[$v['property']] = $v['direction'];
-            unset($value[$i]);
+        if (!empty($value)) {
+            /**
+             * @var int $i
+             * @var array $v
+             */
+            foreach ($value as $i => $v) {
+                $value[$v['property']] = $v['direction'];
+                unset($value[$i]);
+            }
         }
 
         return $value;
