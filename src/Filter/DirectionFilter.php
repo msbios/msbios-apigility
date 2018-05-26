@@ -20,7 +20,7 @@ class DirectionFilter implements FilterInterface
      */
     public function filter($value)
     {
-        if (!empty($value)) {
+        if (! empty($value)) {
             /**
              * @var int $i
              * @var array $v
