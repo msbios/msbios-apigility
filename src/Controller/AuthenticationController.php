@@ -11,10 +11,10 @@ use Zend\Json\Json;
 use ZF\OAuth2\Controller\AuthController as DefaultAuthController;
 
 /**
- * Class AuthController
+ * Class AuthenticationController
  * @package MSBios\Apigility\Controller
  */
-class AuthController extends DefaultAuthController
+class AuthenticationController extends DefaultAuthController
 {
     /**
      * @return Response

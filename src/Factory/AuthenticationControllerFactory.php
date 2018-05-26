@@ -1,42 +1,42 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: judzhin
- * Date: 12/30/16
- * Time: 10:40 AM
+ * @access protected
+ * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
 namespace MSBios\Apigility\Factory;
 
 use Interop\Container\ContainerInterface;
-use MSBios\Apigility\Controller\AuthController;
+use MSBios\Apigility\Controller\AuthenticationController;
 use OAuth2\Server as OAuth2Server;
+use Zend\Stdlib\DispatchableInterface;
 use ZF\OAuth2\Factory\AuthControllerFactory as DefaultAuthControllerFactory;
 
 /**
- * Class AuthControllerFactory
+ * Class AuthenticationControllerFactory
  * @package MSBios\Apigility\Factory
  */
-class AuthControllerFactory extends DefaultAuthControllerFactory
+class AuthenticationControllerFactory extends DefaultAuthControllerFactory
 {
     /**
      * @param ContainerInterface $container
      * @param string $requestedName
      * @param array|null $options
-     * @return AuthController
+     * @return AuthenticationController
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        $authController = new AuthController(
+        /** @var DispatchableInterface $instance */
+        $instance = new AuthenticationController(
             $this->getOAuth2ServerFactory($container),
             $container->get('ZF\OAuth2\Provider\UserId')
         );
 
-        $authController->setApiProblemErrorResponse(
+        $instance->setApiProblemErrorResponse(
             $this->marshalApiProblemErrorResponse($container)
         );
 
-        return $authController;
+        return $instance;
     }
 
     /**
