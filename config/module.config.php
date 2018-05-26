@@ -9,7 +9,6 @@ namespace MSBios\Apigility;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
-
     'service_manager' => [
         'factories' => [
             \ZfrCors\Mvc\CorsRequestListener::class =>

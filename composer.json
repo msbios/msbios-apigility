@@ -25,18 +25,21 @@
   },
   "require": {
     "php": "^5.6 || ^7.0",
-    "msbios/filter": "^1.0",
-    "msbios/db": "^1.0",
-    "zfr/zfr-cors": "^1.3"
-  },
-  "require-dev": {
+    "zendframework/zend-component-installer": "^1.0 || ^0.5 || ^1.0.0-dev@dev",
+    "zfcampus/zf-development-mode": "^3.0",
     "zendframework/zend-cache": "^2.7.1",
     "zendframework/zend-mvc-i18n": "^1.0",
     "zendframework/zend-log": "^2.9",
     "zfcampus/zf-apigility": "^1.3",
     "zfcampus/zf-apigility-documentation": "^1.2.3",
-    "zfcampus/zf-development-mode": "^3.0",
     "zfcampus/zf-apigility-documentation-swagger": "^1.2",
+    "zfr/zfr-cors": "^1.3",
+    "msbios/filter": "^1.0",
+    "msbios/db": "^1.0"
+  },
+  "require-dev": {
+    "zendframework/zend-cache": "^2.7.1",
+    "zendframework/zend-log": "^2.9",
     "zfcampus/zf-apigility-admin": "^1.5.9",
     "zfcampus/zf-asset-manager": "^1.0",
     "zfcampus/zf-composer-autoloading": "^1.0",
@@ -53,8 +56,11 @@
     ],
     "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
     "upload-coverage": "coveralls -v",
-    "commit": "git add . && git commit -a -m \"Lazy Composer Commiter\" && git push",
-    "serve": "php -S 0.0.0.0:3107 -t public index.php",
+    "commit": [
+      "find ./ -name \".DS_Store\" -depth -exec rm {} \\;",
+      "git add . && git commit -a -m \"Lazy Intermedaite commit\" && git push"
+    ],
+    "serve": "php -S 0.0.0.0:3107 -t public public/index.php",
     "development-disable": "zf-development-mode disable",
     "development-enable": "zf-development-mode enable",
     "development-status": "zf-development-mode status",

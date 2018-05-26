@@ -82,8 +82,13 @@ return [
         'ZF\\Versioning',
         'ZF\\Apigility\\Documentation\\Swagger',
         'ZfrCors',
+
         'MSBios\\Filter',
-        'MSBios\\Apigility'
+        'MSBios\\Apigility',
+
+        'ZendDeveloperTools',
+        'ZF\\Apigility\\Admin',
+        'ZF\\Apigility\\Documentation\\Swagger'
     ],
     'module_listener_options' => [
         'module_paths' => [
