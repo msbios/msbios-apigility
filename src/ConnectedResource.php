@@ -17,27 +17,27 @@ use ZF\Apigility\DbConnectedResource as DefaultDbConnectedResource;
  */
 class ConnectedResource extends DefaultDbConnectedResource
 {
-    /**
-     * @param mixed $data
-     * @return array|mixed
-     */
-    protected function retrieveData($data)
-    {
-        /** @var array $data */
-        $data = parent::retrieveData($data);
-
-        /** @var string $key */
-        foreach (['UserName', 'username'] as $key) {
-            if (array_key_exists($key, $data)) {
-                /** @var array $identity */
-                $identity = $this->getIdentity()->getAuthenticationIdentity();
-                $data[$key] = $identity['user_id'];
-                break;
-            }
-        }
-
-        return $data;
-    }
+    // /**
+    //  * @param mixed $data
+    //  * @return array|mixed
+    //  */
+    // protected function retrieveData($data)
+    // {
+    //     /** @var array $data */
+    //     $data = parent::retrieveData($data);
+    //
+    //     /** @var string $key */
+    //     foreach (['UserName', 'username'] as $key) {
+    //         if (array_key_exists($key, $data)) {
+    //             /** @var array $identity */
+    //             $identity = $this->getIdentity()->getAuthenticationIdentity();
+    //             $data[$key] = $identity['user_id'];
+    //             break;
+    //         }
+    //     }
+    //
+    //     return $data;
+    // }
 
     /**
      * @param array|object $data
