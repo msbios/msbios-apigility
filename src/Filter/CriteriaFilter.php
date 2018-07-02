@@ -102,7 +102,23 @@ class CriteriaFilter implements FilterInterface
 
             case 'like':
                 $criteria['value'] = addslashes($criteria['value']);
-                return $predicate->literal("UPPER({$criteria['property']}) LIKE UPPER('{$criteria['value']}%')");
+
+                if (! is_array($criteria['property'])) {
+                    return $predicate->literal("UPPER({$criteria['property']}) LIKE UPPER('{$criteria['value']}%')");
+                }
+
+                /** @var PredicateInterface $predicateSet */
+                $predicateSet = new PredicateSet;
+
+                foreach ($criteria['property'] as $property) {
+                    $predicateSet->addPredicate(
+                        (new Predicate)->literal("UPPER({$criteria['property']}) LIKE UPPER('{$criteria['value']}%')"),
+                        PredicateSet::COMBINED_BY_OR
+                    );
+                }
+
+                return $predicateSet;
+
                 break;
             default:
                 throw new InvalidArgumentException('Criteria not found!');
