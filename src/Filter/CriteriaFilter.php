@@ -110,9 +110,10 @@ class CriteriaFilter implements FilterInterface
                 /** @var PredicateInterface $predicateSet */
                 $predicateSet = new PredicateSet;
 
+                /** @var string $property */
                 foreach ($criteria['property'] as $property) {
                     $predicateSet->addPredicate(
-                        (new Predicate)->literal("UPPER({$criteria['property']}) LIKE UPPER('{$criteria['value']}%')"),
+                        (new Predicate)->literal("UPPER({$property}) LIKE UPPER('{$criteria['value']}%')"),
                         PredicateSet::COMBINED_BY_OR
                     );
                 }
