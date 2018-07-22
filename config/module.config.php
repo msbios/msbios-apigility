@@ -10,6 +10,7 @@ use Zend\Router\Http\Literal;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
+
     'service_manager' => [
         'factories' => [
             \ZfrCors\Mvc\CorsRequestListener::class =>
